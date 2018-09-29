@@ -1,0 +1,209 @@
+/* =============================================
+BASIC LAYOUT OF PAGES
+===============================================*/
+header {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	color: white;
+	background: @primary;
+
+	.flex {
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.content {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+footer {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	color: white;
+	background: @primary;
+	border-top: 10px solid @primaryLight;
+}
+
+.container {
+	margin: 0 auto;
+	width: 80%;
+
+	@media screen and (max-width: 1024px) {
+		width: 95%;
+	}
+}
+
+/* =============================================
+LAYOUT HELPERS
+===============================================*/
+
+.grid {
+	display: grid;
+}
+.flex {
+	display: flex;
+}
+
+/* =============================================
+TABLE STYLES
+===============================================*/
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 2px solid @primaryDark;
+	border-bottom: 2px solid @primaryDark;
+
+	th {
+		text-align: center;
+	}
+	tr {
+		border-bottom: 1px solid @primary;
+	}
+	td, th {
+		padding: .5em;
+		text-align: center;
+	}
+	td {
+		&:first-child {
+			text-align: left;
+		}
+	}
+	thead {
+		tr {
+			border-bottom: 2px solid @primaryDark;
+		}
+	}
+	&.table-striped {
+		tr {
+			&:nth-child(even) {
+				background: lighten(black, 90%);
+			}
+		}
+	}
+}
+
+/* =============================================
+PLAYER STYLES
+===============================================*/
+.players {
+	.grid {
+		grid-template-columns: auto auto auto auto;
+		grid-gap: 15px;
+	}
+}
+.player-card {
+
+	.player-card-top {
+		padding: .5rem;
+		display: flex;
+		flex-wrap: wrap;
+		.border-radiuses(5px, 5px, 0, 0);
+
+		h3, &>div {
+			position: relative;
+			z-index: 2;
+		}
+	}
+	.player-name {
+		width: 100%;
+		font-size: 1.25rem;
+	}
+	.player-id {
+		flex-grow: 1;
+	}
+	.player-team {
+		flex-grow: 2;
+		align-self: bottom;
+		font-size: 1.1rem;
+		text-align: right;
+	}
+}
+
+
+/* =============================================
+GAME STYLES
+===============================================*/
+.games {
+	.form-inline {
+		// margin: 0 auto;
+		// width: 80%;
+	}
+}
+.table-scores {
+	margin: 0;
+	padding: 0;
+	
+	.flex {
+		margin-bottom: 1.5rem;
+		justify-content: space-between;
+
+		div {
+			padding: 1.5rem;
+
+		}
+	}
+	.team-name,
+	.team-score {
+		position: relative;
+		z-index: 2;
+		text-shadow: 2px 2px 2px #222;
+	}
+	.team-away {
+		flex-grow: 1;
+		font-size: 140%;
+		.border-radiuses(5px, 0, 0, 5px);
+
+		.team-score {
+			float: right;
+		}
+	}
+	.team-home {
+		flex-grow: 1;
+		font-size: 140%;
+		.border-radiuses(0, 5px, 5px, 0);
+
+		.team-name {
+			float: right;
+		}
+	}
+}
+
+/* =============================================
+BUTTON CLASSES
+===============================================*/
+.btn {
+	margin: .5rem 0;
+	padding: .5em;
+	.border-radius();
+	.transition(all .2s);
+
+	&:hover {
+		cursor: pointer;
+		background: #DDD;
+	}
+}
+.btn-default {
+	background: #FFF;
+	border: 1px solid #DDD;
+}
+.btn-block {
+	width: 100%;
+}
+
+
+/* =============================================
+HELPER CLASSES
+===============================================*/
+
+.img-responsive {
+	width: 100%;
+}
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
